@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        textarea{
+            height: 200px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="/submit" method="post">
+        <h1>Helpdesk IT</h1>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="issue">Issue:</label><br>
+        <textarea id="issue" name="issue" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

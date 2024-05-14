@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk Dashboard</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .completed {
+            text-decoration: line-through;
+        }
+        td, th {
+            border: 2px solid black;
+            padding: 5px;
+        }
+        table {
+            margin: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Helpdesk Dashboard</h1>
+    <form action="/toggle_completed" method="post">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Issue</th>
+                <th>Completed</th>
+            </tr>
+            {% for entry in data %}
+            <tr>
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.email }}</td>
+                <td class="{% if entry.completed %}completed{% endif %}">{{ entry.issue }}</td>
+                <td>
+                    <input type="checkbox" name="completed[]" value="{{ loop.index }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Toggle Completed">
+    </form>
+    
+    <script>
+        // Function to reload the page every 5 seconds
+        function autoRefresh() {
+            setTimeout(function() {
+                location.reload();
+            }, 5000); // Refresh every 5 seconds (5000 milliseconds)
+        }
+
+        // Call autoRefresh() when the page loads
+        window.onload = autoRefresh;
+    </script>
+    
+</body>
+</html>
